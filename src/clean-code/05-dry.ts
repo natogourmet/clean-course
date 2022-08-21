@@ -5,15 +5,31 @@ class Product {
     public size: string = ''
   ) {}
 
-  toString() {
-    if (this.name.length > 0) throw new Error('Name is required');
-    if (this.price === 0) throw new Error('Price is required');
-    if (this.size.length > 0) throw new Error('Size is required');
+  isProductValid(): boolean {
+    for (const key in this) {
+      switch (typeof this[key]) {
+        case 'string':
+          if ((<string><unknown>this[key]).length === 0) return false;
+          break;
+        case 'number':
+          if ((<number><unknown>this[key]) <= 0) return false;
+          break;
+        default:
+          throw new Error('Invalid type');
+          break;
+      }
+    }
+    return true;
+  }
 
-    return `${this.name} - ${this.price}`;
+  toString() {
+    if (!this.isProductValid()) return;
+
+    return `Product: ${this.name} - Price: ${this.price} - Size: ${this.size}`;
   }
 }
 
 (() => {
   const bluePlane = new Product('Blue Plane', 100);
+  bluePlane.toString();
 })();
