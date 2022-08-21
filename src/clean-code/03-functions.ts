@@ -27,14 +27,23 @@
   }
 
   // Crea un nuevo actor
-  function createActor(
-    fullName: string,
-    birthdate: Date
-  ): boolean {
-
+  function createActor(fullName: string, birthdate: Date): boolean {
     // if (checkFullName(fullName)) return true
     // ..
     // ..
     return false;
   }
+
+  const getPayAmount = ({
+    isDead = false,
+    isSeparated = true,
+    isRetired = false,
+  }): number => {
+
+    if (isDead) return 1500;
+
+    if (isSeparated) return 2500;
+
+    return isRetired ? 3000 : 4000;
+  };
 })();
