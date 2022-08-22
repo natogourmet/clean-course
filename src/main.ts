@@ -1,5 +1,5 @@
 import './style.css'
-import './clean-code/07-task'
+import './solid/srp'
 
 const app = document.querySelector<HTMLDivElement>('#app')!
 
