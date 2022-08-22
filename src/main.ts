@@ -1,6 +1,6 @@
 // import './style.css'
 // import './solid/srp'
-import './solid/liskov-b'
+import './solid/liskov-a'
 
 const app = document.querySelector<HTMLDivElement>('#app')!
 
